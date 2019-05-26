@@ -272,7 +272,7 @@
                     </div>
                     <div class="footer-block author">
                         <ul>
-                            <li>Credit <a href="https://github.com/modularcode">ModularCode</a></li>
+                            <li>Built with: <a href="https://github.com/laravel/laravel">Laravel</a> | <a href="https://github.com/spatie/laravel-permission">spatie/laravel-permission</a> | <a href="https://github.com/modularcode">ModularCode</a></li>
                         </ul>
                     </div>
                 </footer>
