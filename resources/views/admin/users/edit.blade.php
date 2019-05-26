@@ -1,14 +1,15 @@
 @extends('admin.layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/users">
+    <form role="form" method="POST" action="/users/{{$user->id}}">
         @csrf
+        @method('patch')
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
-                            <h4 class="title">Create New user</h4>
+                            <h4 class="title">Edit user</h4>
                             @if ($errors->any())
                             <div class="field mt-6">
                                 @foreach ($errors->all() as $error)
@@ -19,18 +20,18 @@
                         </div>
                         <div class="form-group has-success">
                             <label class="control-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-control is-valid">
+                            <input type="text" id="name" name="name" class="form-control" value="{{$user->name}}">
                         </div>
                         <div class="form-group has-success">
                             <label class="control-label" for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control is-valid">
+                            <input type="email" id="email" name="email" class="form-control" value="{{$user->email}}">
                         </div>
-                        <div class="form-group has-success">
+                        {{-- <div class="form-group has-success">
                             <label class="control-label" for="password">Password</label>
                             <input type="password" id="password" name="password" class="form-control is-valid">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-sm btn-success" value="Create">
+                            <input type="submit" class="btn btn-sm btn-success" value="Update">
                         </div>
                     </div>
                 </div>
@@ -43,7 +44,7 @@
                             @foreach ($roles as $role)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="roles[]" value="{{$role->name}}">
+                                        <input class="checkbox" type="checkbox" name="roles[]" value="{{$role->name}}" {{$role->users()->where('id', $user->id)->exists() ? 'checked' : ''}}>
                                         <span>{{$role->name}}</span>
                                     </label>
                                 </div>
@@ -54,7 +55,7 @@
                             @foreach ($permissions as $permission)
                                 <div>
                                     <label>
-                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}">
+                                        <input class="checkbox" type="checkbox" name="permissions[]" value="{{$permission->name}}" {{$permission->users()->where('id', $user->id)->exists() ? 'checked' : ''}}>
                                         <span>{{$permission->name}}</span>
                                     </label>
                                 </div>

@@ -43,6 +43,34 @@ class RoleController extends Controller
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/roles');
+    }
+
+    public function edit(Role $role)
+    {
+        $permissions = Permission::all();
+        return view('admin.roles.edit', [
+            'role' => $role,
+            'permissions' => $permissions
+        ]);
+    }
+
+    public function update(Request $request, Role $role)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $role->update([
+            'name' => $request->name
+        ]);
+
+        if($request->permissions){
+            $role->syncPermissions($request->permissions);
+        }
         
+        Session::flash('message', 'Role updated Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/roles');
     }
 }

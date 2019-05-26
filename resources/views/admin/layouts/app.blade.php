@@ -11,7 +11,7 @@
         <!-- Place favicon.ico in the root directory -->
         <link href="{{ asset('admin/css/vendor.css') }}" rel="stylesheet">
         <!-- Theme initialization -->
-        <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin/css/admin.css') }}">
     </head>
     <body>
         <div class="main-wrapper">
@@ -352,6 +352,6 @@
             </div>
         </div>
         <script src="{{ asset('admin/js/vendor.js') }}"></script>
-        <script src="{{ asset('admin/js/app.js') }}"></script>
+        <script src="{{ asset('admin/js/admin.js') }}"></script>
     </body>
 </html>

@@ -30,7 +30,7 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="">Edit</a>
+                                                <a class="btn btn-sm btn-oval btn-info" href="/roles/{{$role->id}}/edit">Edit</a>
                                                 <a class="btn btn-sm btn-oval btn-primary" href="">Show</a>
                                             </td>
                                         </tr>

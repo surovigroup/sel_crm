@@ -16,6 +16,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Roles</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -26,7 +27,12 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="">Edit</a>
+                                                @foreach ($user->roles as $role)
+                                                    <span class="badge badge-success">{{$role->name}}</span>
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm btn-oval btn-info" href="users/{{$user->id}}/edit">Edit</a>
                                                 <a class="btn btn-sm btn-oval btn-primary" href="">Show</a>
                                             </td>
                                         </tr>

@@ -23,6 +23,8 @@ Route::get('/', function () {
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users', [UserController::class, 'store']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+Route::patch('/users/{user}', [UserController::class, 'update']);
 
 //Permissions
 Route::get('/permissions', [PermissionController::class, 'index']);
@@ -33,3 +35,5 @@ Route::post('/permissions', [PermissionController::class, 'store']);
 Route::get('/roles', [RoleController::class, 'index']);
 Route::get('/roles/create', [RoleController::class, 'create']);
 Route::post('/roles', [RoleController::class, 'store']);
+Route::get('/roles/{role}/edit', [RoleController::class, 'edit']);
+Route::patch('/roles/{role}', [RoleController::class, 'update']);
