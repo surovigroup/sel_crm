@@ -125,23 +125,23 @@
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li class="active">
-                                    <a href="">
+                                <li class="">
+                                    <a href="/admin">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
-                                <li>
+                                <li class="active open" >
                                     <a href="">
                                         <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="/permissions"> <i class="fa fa-key"> </i> Permissions </a>
+                                            <a href="/admin/permissions"> <i class="fa fa-key"> </i> Permissions </a>
                                         </li>
                                         <li>
-                                            <a href="/roles"> <i class="fa fa-briefcase"> </i> Roles </a>
+                                            <a href="/admin/roles"> <i class="fa fa-briefcase"> </i> Roles </a>
                                         </li>
                                         <li>
-                                            <a href="/users"> <i class="fa fa-users"> </i> Users </a>
+                                            <a href="/admin/users"> <i class="fa fa-users"> </i> Users </a>
                                         </li>
                                     </ul>
                                 </li>

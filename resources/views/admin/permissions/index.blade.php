@@ -6,7 +6,7 @@
             <div class="card sameheight-item stats" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block">
-                        <h4 class="title"> Permissions <a class="btn btn-success btn-oval btn-sm" href="/permissions/create">Create new</a></h4>
+                        <h4 class="title"> Permissions <a class="btn btn-success btn-oval btn-sm" href="/admin/permissions/create">Create new</a></h4>
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">

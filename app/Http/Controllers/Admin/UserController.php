@@ -59,7 +59,7 @@ class UserController extends Controller
         Session::flash('message', 'User created Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/users');
+        return redirect('/admin/users');
     }
 
     public function edit(User $user)
@@ -95,6 +95,6 @@ class UserController extends Controller
         Session::flash('message', 'User updated Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/users');
+        return redirect('/admin/users');
     }
 }

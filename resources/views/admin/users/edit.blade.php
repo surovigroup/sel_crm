@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/users/{{$user->id}}">
+    <form role="form" method="POST" action="/admin/users/{{$user->id}}">
         @csrf
         @method('patch')
         <div class="row sameheight-container">

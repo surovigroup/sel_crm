@@ -42,7 +42,7 @@ class RoleController extends Controller
         Session::flash('message', 'Role created Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/roles');
+        return redirect('/admin/roles');
     }
 
     public function edit(Role $role)
@@ -71,6 +71,6 @@ class RoleController extends Controller
         Session::flash('message', 'Role updated Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/roles');
+        return redirect('/admin/roles');
     }
 }

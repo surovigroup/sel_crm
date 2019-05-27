@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 <section class="section">
-    <form role="form" method="POST" action="/roles">
+    <form role="form" method="POST" action="/admin/roles">
         @csrf
         <div class="row sameheight-container">
             <div class="col col-12 col-sm-12 col-md-6 col-xl-6">

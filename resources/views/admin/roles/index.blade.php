@@ -6,7 +6,7 @@
             <div class="card sameheight-item stats" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block">
-                        <h4 class="title"> Roles <a class="btn btn-success btn-oval btn-sm" href="/roles/create">Create new</a></h4>
+                        <h4 class="title"> Roles <a class="btn btn-success btn-oval btn-sm" href="/admin/roles/create">Create new</a></h4>
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">
@@ -30,7 +30,7 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="/roles/{{$role->id}}/edit">Edit</a>
+                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/roles/{{$role->id}}/edit">Edit</a>
                                                 <a class="btn btn-sm btn-oval btn-primary" href="">Show</a>
                                             </td>
                                         </tr>

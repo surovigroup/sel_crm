@@ -34,7 +34,7 @@ class PermissionController extends Controller
         Session::flash('message', 'Permission created Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/permissions');
+        return redirect('/admin/permissions');
         
     }
 }
