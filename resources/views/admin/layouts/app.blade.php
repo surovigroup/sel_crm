@@ -129,18 +129,18 @@
                                     <a href="/admin">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
-                                <li class="active open" >
+                                <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
                                     <a href="">
                                         <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
-                                        <li>
+                                        <li class="{{(request()->is('admin/permissions*')) ? 'active' : '' }}">
                                             <a href="/admin/permissions"> <i class="fa fa-key"> </i> Permissions </a>
                                         </li>
-                                        <li>
+                                        <li class="{{(request()->is('admin/roles*')) ? 'active' : '' }}">
                                             <a href="/admin/roles"> <i class="fa fa-briefcase"> </i> Roles </a>
                                         </li>
-                                        <li>
+                                        <li class="{{(request()->is('admin/users*')) ? 'active' : '' }}">
                                             <a href="/admin/users"> <i class="fa fa-users"> </i> Users </a>
                                         </li>
                                     </ul>
