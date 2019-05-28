@@ -19,15 +19,15 @@
                         </div>
                         <div class="form-group has-success">
                             <label class="control-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-control is-valid">
+                            <input type="text" id="name" name="name" class="form-control">
                         </div>
                         <div class="form-group has-success">
                             <label class="control-label" for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control is-valid">
+                            <input type="email" id="email" name="email" class="form-control">
                         </div>
                         <div class="form-group has-success">
                             <label class="control-label" for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control is-valid">
+                            <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">

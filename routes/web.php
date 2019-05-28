@@ -24,6 +24,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/create', [UserController::class, 'create']);
     Route::post('/users', [UserController::class, 'store']);
+    Route::get('/users/{user}', [UserController::class, 'show']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);
     Route::patch('/users/{user}', [UserController::class, 'update']);
 
@@ -36,6 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/roles', [RoleController::class, 'index']);
     Route::get('/roles/create', [RoleController::class, 'create']);
     Route::post('/roles', [RoleController::class, 'store']);
+    Route::get('/roles/{role}', [RoleController::class, 'show']);
     Route::get('/roles/{role}/edit', [RoleController::class, 'edit']);
     Route::patch('/roles/{role}', [RoleController::class, 'update']);
 });

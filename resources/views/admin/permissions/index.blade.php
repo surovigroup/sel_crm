@@ -5,8 +5,9 @@
         <div class="col col-12 col-sm-12 col-md-12 col-xl-12">
             <div class="card sameheight-item stats" data-exclude="xs">
                 <div class="card-block">
-                    <div class="title-block">
-                        <h4 class="title"> Permissions <a class="btn btn-success btn-oval btn-sm" href="/admin/permissions/create">Create new</a></h4>
+                    <div class="title-block d-flex">
+                        <h4 class="title"> Permissions </h4>
+                        <a class="btn btn-success btn-oval btn-sm ml-auto" href="/admin/permissions/create">Create new</a>
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">

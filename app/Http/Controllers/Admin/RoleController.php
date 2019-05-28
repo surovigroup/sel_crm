@@ -19,6 +19,13 @@ class RoleController extends Controller
         ]);
     }
 
+    public function show(Role $role)
+    {
+        return view('admin.roles.show', [
+            'role' => $role,
+        ]);
+    }
+
     public function create()
     {
         $permissions = Permission::all();
