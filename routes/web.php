@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PermissionController;
 
@@ -22,10 +23,13 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/login', [DashboardController::class, 'login']);
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm']);
+    Route::post('/login', [AdminLoginController::class, 'login']);
 
-    Route::group(['middleware' => ['admin','role:superadmin']], function () {
+    Route::group(['middleware' => ['admin','permission:access_admin_dashboard']], function () {
 
+        Route::post('/logout', [AdminLoginController::class, 'logout']);
+        
         Route::get('/dashboard', [DashboardController::class, 'index']);
 
         //Users

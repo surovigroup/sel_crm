@@ -103,8 +103,11 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html">
+                                    <a class="dropdown-item" href="/admin/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
+                                        <form id="logout-form" action="/admin/logout" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                 </div>
                             </li>
                         </ul>
@@ -126,7 +129,7 @@
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
                                 <li class="">
-                                    <a href="/admin">
+                                    <a href="/admin/dashboard">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
                                 <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
@@ -144,11 +147,6 @@
                                             <a href="/admin/users"> <i class="fa fa-users"> </i> Users </a>
                                         </li>
                                     </ul>
-                                </li>
-
-                                <li>
-                                    <a href="https://github.com/modularcode/modular-admin-html">
-                                        <i class="fa fa-github-alt"></i> Theme Docs </a>
                                 </li>
                             </ul>
                         </nav>

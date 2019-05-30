@@ -11,7 +11,6 @@
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="{{ asset('admin/css/vendor.css') }}">
         <!-- Theme initialization -->
-        <!-- Theme initialization -->
         <link rel="stylesheet" href="{{ asset('admin/css/admin.css') }}">
     </head>
     <body>
@@ -30,35 +29,38 @@
                         </h1>
                     </header>
                     <div class="auth-content">
-                        <p class="text-center">LOGIN TO CONTINUE</p>
-                        <form id="login-form" action="/index.html" method="GET" novalidate="">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="email" class="form-control underlined" name="username" id="username" placeholder="Your email address" required>
+                        <form method="POST" action="/admin/login">
+                            @csrf
+                            <div class="form-group @error('email') has-error @enderror">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group @error('password') has-error @enderror">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" required>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="remember">
-                                    <input class="checkbox" id="remember" type="checkbox">
+                                    <input class="checkbox" id="remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <span>Remember me</span>
                                 </label>
-                                <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-block btn-primary">Login</button>
                             </div>
-                            <div class="form-group">
-                                <p class="text-muted text-center">Do not have an account? <a href="signup.html">Sign Up</a></p>
-                            </div>
                         </form>
                     </div>
-                </div>
-                <div class="text-center">
-                    <a href="index.html" class="btn btn-secondary btn-sm">
-                        <i class="fa fa-arrow-left"></i> Back to dashboard </a>
                 </div>
             </div>
         </div>
@@ -70,7 +72,5 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
-        <script src="{{ asset('admin/js/vendor.js') }}"></script>
-        <script src="{{ asset('admin/js/admin.js') }}"></script>
     </body>
 </html>
