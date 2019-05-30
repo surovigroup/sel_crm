@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+        <title> {{config('app.name')}} </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,13 +19,7 @@
                 <div class="card">
                     <header class="auth-header">
                         <h1 class="auth-title">
-                            <div class="logo">
-                                <span class="l l1"></span>
-                                <span class="l l2"></span>
-                                <span class="l l3"></span>
-                                <span class="l l4"></span>
-                                <span class="l l5"></span>
-                            </div> ModularAdmin
+                            {{config('app.name')}}
                         </h1>
                     </header>
                     <div class="auth-content">

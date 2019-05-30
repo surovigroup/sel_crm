@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+        <title> {{config('app.name')}} </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -117,13 +117,7 @@
                     <div class="sidebar-container">
                         <div class="sidebar-header">
                             <div class="brand">
-                                <div class="logo">
-                                    <span class="l l1"></span>
-                                    <span class="l l2"></span>
-                                    <span class="l l3"></span>
-                                    <span class="l l4"></span>
-                                    <span class="l l5"></span>
-                                </div> Modular Admin
+                                {{config('app.name')}}
                             </div>
                         </div>
                         <nav class="menu">
