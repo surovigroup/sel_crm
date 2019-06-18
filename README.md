@@ -12,3 +12,6 @@
 - Generate encryption key `` php artisan key:generate ``
 - Update the .env file with database credentials
 - Run migration `` php artisan migrate ``
+- Seed database `` php artisan db:seed ``
+- Run the server `` php artisan serve ``
+- Visit [localhost:8000/admin/login](http://localhost:8000/admin/login) `` email: faysal@faysal.me Password: password ``
