@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Permission::create(['name' => 'access_admin_dashboard']);
+        Permission::create(['name' => 'create_user']);
+
+        $user = factory('App\User')->create();
+
+        $user->givePermissionTo(['access_admin_dashboard', 'create_user']);
     }
 }
