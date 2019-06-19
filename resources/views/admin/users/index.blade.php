@@ -33,8 +33,12 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/users/{{$user->id}}/edit">Edit</a>
-                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/users/{{$user->id}}">Show</a>
+                                                @if($user->trashed())
+                                                    <a class="btn btn-sm btn-oval btn-warning" href="/admin/users/{{$user->id}}/restore">Restore</a>
+                                                @else
+                                                    <a class="btn btn-sm btn-oval btn-info" href="/admin/users/{{$user->id}}/edit">Edit</a>
+                                                    <a class="btn btn-sm btn-oval btn-primary" href="/admin/users/{{$user->id}}">Show</a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

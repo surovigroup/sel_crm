@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = auth()->user()->hasPermissionTo('manage_trashed_users') ? User::withTrashed()->get() : User::all();
 
         return view('admin.users.index', [
 
@@ -102,6 +102,27 @@ class UserController extends Controller
         }
         
         Session::flash('message', 'User updated Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/users');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        Session::flash('message', 'User deleted Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/users');
+    }
+
+    public function restore($id)
+    {
+        $user = User::withTrashed()->findOrFail($id);
+        $user->restore();
+
+        Session::flash('message', 'User restored Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/users');

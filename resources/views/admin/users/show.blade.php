@@ -26,7 +26,13 @@
                         </div>
                     </div>
                     <div class="title-block d-flex">
-                        <a class="btn btn-sm btn-oval btn-danger mx-1 ml-auto" href="/admin/users/{{$user->id}}/edit"> Delete</a>
+                        <form class="mx-1 ml-auto" method="POST" action="/admin/users/{{$user->id}}">
+                            @method('DELETE')
+                            @csrf
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-sm btn-oval btn-danger" value="Delete">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

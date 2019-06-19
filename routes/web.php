@@ -39,6 +39,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/users/{user}', [UserController::class, 'show']);
         Route::get('/users/{user}/edit', [UserController::class, 'edit']);
         Route::patch('/users/{user}', [UserController::class, 'update']);
+        Route::delete('/users/{user}', [UserController::class, 'destroy']);
+        Route::get('/users/{user}/restore', [UserController::class, 'restore']);
 
         //Permissions
         Route::get('/permissions', [PermissionController::class, 'index']);
