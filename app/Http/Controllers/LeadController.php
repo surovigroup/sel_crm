@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Lead;
 use App\User;
+use App\Source;
+use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -21,8 +23,12 @@ class LeadController extends Controller
     public function create()
     {
         $lead_managers = $users = User::permission('lead_manager')->get();
+        $statuses = Status::all();
+        $sources = Source::all();
         return view('leads.create', [
-            'lead_managers' => $lead_managers
+            'lead_managers' => $lead_managers,
+            'statuses'      => $statuses,
+            'sources'       => $sources
         ]);
     }
 
@@ -30,7 +36,7 @@ class LeadController extends Controller
     {
         $attributes = $request->validate([
             'name'      => 'required',
-            'phone'     => 'required',
+            'phone'     => 'required|unique:leads',
             'email'     => 'sometimes|email',
             'source'    => 'required',
         ]);
@@ -38,7 +44,7 @@ class LeadController extends Controller
         $attributes['description'] = $request->description;
         $attributes['user_created_id'] = auth()->user()->id;
         $attributes['user_assigned_id'] = $request->user_assigned_id ?? auth()->user()->id;
-        $attributes['status_id'] = 1;
+        $attributes['status_id'] = $request->status_id ?? Status::first()->id;
 
         Lead::create($attributes);
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -64,6 +65,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/statuses', [StatusController::class, 'index']);
         Route::get('/statuses/create', [StatusController::class, 'create']);
         Route::post('/statuses', [StatusController::class, 'store']);
+
+        //Statuses
+        Route::get('/sources', [SourceController::class, 'index']);
+        Route::get('/sources/create', [SourceController::class, 'create']);
+        Route::post('/sources', [SourceController::class, 'store']);
 
         //Leads
         Route::get('/leads', [LeadController::class, 'index']);

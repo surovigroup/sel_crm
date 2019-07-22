@@ -93,7 +93,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')">
                                     </div>
-                                    <span class="name"> John Doe </span>
+                                    <span class="name"> {{Auth::user()->name}} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item" href="#">
@@ -126,17 +126,26 @@
                                     <a href="/admin/dashboard">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
+                                @can('manage_status')
                                 <li class="">
                                     <a href="/admin/statuses">
-                                        <i class="fa fa-users"></i> Statuses </a>
+                                        <i class="fa fa-tag"></i> Statuses </a>
                                 </li>
+                                @endcan
+                                @can('manage_source')
+                                <li class="">
+                                    <a href="/admin/sources">
+                                        <i class="fa fa-external-link"></i> Source </a>
+                                </li>
+                                @endcan
                                 <li class="">
                                     <a href="/admin/leads">
                                         <i class="fa fa-users"></i> Leads </a>
                                 </li>
+                                @can('manage_user')
                                 <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
                                     <a href="">
-                                        <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
+                                        <i class="fa fa-user"></i> User Management <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li class="{{(request()->is('admin/permissions*')) ? 'active' : '' }}">
@@ -150,6 +159,7 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @endcan
                             </ul>
                         </nav>
                     </div>

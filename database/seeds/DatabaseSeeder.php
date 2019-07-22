@@ -15,7 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Permission::create(['name' => 'access_admin_dashboard']);
+        Permission::create(['name' => 'manage_user']);
         Permission::create(['name' => 'create_user']);
+        Permission::create(['name' => 'manage_status']);
+        Permission::create(['name' => 'manage_source']);
         Permission::create(['name' => 'lead_manager']);
 
         $user = User::create([
@@ -26,6 +29,6 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $user->givePermissionTo(['access_admin_dashboard', 'create_user']);
+        $user->givePermissionTo(['access_admin_dashboard', 'manage_user', 'create_user', 'manage_status', 'manage_source', 'lead_manager']);
     }
 }

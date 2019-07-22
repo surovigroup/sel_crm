@@ -37,7 +37,18 @@
                             <label class="control-label" for="email">Source</label>
                             <select name="source" id="source" class="form-control">
                                 <option value="">Select Source</option>
-                                <option value="Facebook">Facebook</option>
+                                @foreach ($sources as $source)
+                                    <option value="{{$source->id}}">{{$source->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Status</label>
+                            <select name="source" id="source" class="form-control">
+                                <option value="">Select Status</option>
+                                @foreach ($statuses as $status)
+                                    <option value="{{$status->name}}">{{$status->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
