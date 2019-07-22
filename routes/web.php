@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\PermissionController;
 
 /*
@@ -55,6 +57,18 @@ Route::prefix('admin')->group(function () {
         Route::get('/roles/{role}/edit', [RoleController::class, 'edit']);
         Route::patch('/roles/{role}', [RoleController::class, 'update']);
 
+    });
+
+    Route::group(['middleware' => ['admin']], function () {
+        //Statuses
+        Route::get('/statuses', [StatusController::class, 'index']);
+        Route::get('/statuses/create', [StatusController::class, 'create']);
+        Route::post('/statuses', [StatusController::class, 'store']);
+
+        //Leads
+        Route::get('/leads', [LeadController::class, 'index']);
+        Route::get('/leads/create', [LeadController::class, 'create']);
+        Route::post('/leads', [LeadController::class, 'store']);
     });
     
 });

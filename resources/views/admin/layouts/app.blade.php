@@ -126,6 +126,14 @@
                                     <a href="/admin/dashboard">
                                         <i class="fa fa-th-large"></i> Dashboard </a>
                                 </li>
+                                <li class="">
+                                    <a href="/admin/statuses">
+                                        <i class="fa fa-users"></i> Statuses </a>
+                                </li>
+                                <li class="">
+                                    <a href="/admin/leads">
+                                        <i class="fa fa-users"></i> Leads </a>
+                                </li>
                                 <li class="{{ (request()->is('admin/permissions*')) || (request()->is('admin/roles*')) || (request()->is('admin/users*')) ? 'active open' : '' }}" >
                                     <a href="">
                                         <i class="fa fa-users"></i> User Management <i class="fa arrow"></i>
