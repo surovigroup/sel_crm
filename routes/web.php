@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\PermissionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('admin/login');
 });
 
 Route::prefix('admin')->group(function () {

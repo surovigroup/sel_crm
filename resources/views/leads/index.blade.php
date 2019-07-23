@@ -6,7 +6,7 @@
             <div class="card sameheight-item stats" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block d-flex">
-                        <h4 class="title"> leads</h4>
+                        <h4 class="title"> Leads</h4>
                         <a class="btn btn-success btn-oval btn-sm ml-auto" href="/admin/leads/create">Create new</a>
                     </div>
                     <div class="row row-sm">

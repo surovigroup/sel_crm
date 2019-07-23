@@ -37,7 +37,7 @@ class LeadController extends Controller
         $attributes = $request->validate([
             'name'      => 'required',
             'phone'     => 'required|unique:leads',
-            'email'     => 'sometimes|email',
+            'email'     => 'nullable|email',
             'source'    => 'required',
         ]);
 

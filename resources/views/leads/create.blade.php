@@ -19,11 +19,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="phone">Phone</label>
-                            <input type="text" id="phone" name="phone" class="form-control">
+                            <input type="text" id="phone" name="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email">Email</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email">Source</label>
-                            <select name="source" id="source" class="form-control">
+                            <select name="source" id="source" class="form-control" required>
                                 <option value="">Select Source</option>
                                 @foreach ($sources as $source)
                                     <option value="{{$source->id}}">{{$source->name}}</option>
@@ -63,13 +63,6 @@
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Create">
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
-                <div class="card sameheight-item" data-exclude="xs">
-                    <div class="card-block">
-
                     </div>
                 </div>
             </div>
