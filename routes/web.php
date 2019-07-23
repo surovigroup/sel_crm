@@ -75,6 +75,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/leads', [LeadController::class, 'index']);
         Route::get('/leads/create', [LeadController::class, 'create']);
         Route::post('/leads', [LeadController::class, 'store']);
+        Route::get('/leads/{lead}/edit', [LeadController::class, 'edit']);
+        Route::patch('/leads/{lead}', [LeadController::class, 'update']);
     });
     
 });

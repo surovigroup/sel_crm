@@ -32,11 +32,11 @@
                                             <td>{{$lead->email}}</td>
                                             <td>{{$lead->source}}</td>
                                             <td>
-                                                <span class="badge badge-success">{{$lead->status}}</span>
+                                                <span class="badge" style="color: #000; background-color: {{$lead->status->color}}; ">{{$lead->status->name}}</span>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/leads/{{$lead->id}}/edit">Edit</a>
-                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/leads/{{$lead->id}}">Show</a>
+                                                {{-- <a class="btn btn-sm btn-oval btn-info" href="/admin/leads/{{$lead->id}}/edit">Edit</a> --}}
+                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/leads/{{$lead->id}}/edit">details</a>
                                             </td>
                                         </tr>
                                     @endforeach
