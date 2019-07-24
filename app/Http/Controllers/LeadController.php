@@ -92,4 +92,27 @@ class LeadController extends Controller
 
         return redirect('/admin/leads');
     }
+
+    public function updateStatus(Request $request, Lead $lead)
+    {
+        $request->validate([
+            'status_id' => 'required',
+        ]);
+        
+        $lead->status_id = $request->status_id;
+        $lead->save();
+        Session::flash('message', 'Status updated Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/leads/'. $lead->id);
+    }
+
+    public function show(Lead $lead)
+    {
+        $statuses = Status::all();
+        return view('leads.show', [
+            'statuses'  => $statuses,
+            'lead'      => $lead
+        ]);
+    }
 }

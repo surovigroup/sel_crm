@@ -35,8 +35,8 @@
                                                 <span class="badge" style="color: #000; background-color: {{$lead->status->color}}; ">{{$lead->status->name}}</span>
                                             </td>
                                             <td>
-                                                {{-- <a class="btn btn-sm btn-oval btn-info" href="/admin/leads/{{$lead->id}}/edit">Edit</a> --}}
-                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/leads/{{$lead->id}}/edit">details</a>
+                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/leads/{{$lead->id}}">Details</a>
+                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/leads/{{$lead->id}}/edit">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

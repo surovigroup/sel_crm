@@ -53,7 +53,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="email">Asign to</label>
+                            <label class="control-label" for="email">Assign to</label>
                             <select name="user_assigned_id" id="user_assigned_id" class="form-control">
                                 <option value="">Select Manager</option>
                                 @foreach ($lead_managers as $lead_manager)
