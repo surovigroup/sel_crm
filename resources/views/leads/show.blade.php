@@ -28,7 +28,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-sm btn-success" value="Update status">
+                                    <input type="submit" class="btn btn-sm btn-success" value="Update Status">
+                                    <a class="btn btn-sm btn-info" href="/admin/leads">Back</a>
                                 </div>
                             </form>
                         </div>
