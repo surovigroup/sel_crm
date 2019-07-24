@@ -18,18 +18,18 @@
                             </div>
                             @endif
                         </div>
-                        <div class="form-group has-success">
+                        <div class="form-group">
                             <label class="control-label" for="name">Name</label>
                             <input type="text" id="name" name="name" class="form-control" value="{{$user->name}}">
                         </div>
-                        <div class="form-group has-success">
+                        <div class="form-group">
                             <label class="control-label" for="email">Email</label>
                             <input type="email" id="email" name="email" class="form-control" value="{{$user->email}}">
                         </div>
-                        {{-- <div class="form-group has-success">
+                        <div class="form-group">
                             <label class="control-label" for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control is-valid">
-                        </div> --}}
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-sm btn-success" value="Update">
                         </div>

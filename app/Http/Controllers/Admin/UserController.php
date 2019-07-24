@@ -84,15 +84,17 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $request->validate([
+
+        $attributes = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id
         ]);
 
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        if($request->password){
+            $attributes['password'] = Hash::make($request->password);
+        }
+
+        $user->update($attributes);
 
         if($request->roles){
             $user->syncRoles($request->roles);
