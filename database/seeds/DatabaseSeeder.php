@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         $role = Role::create(['name' => 'admin']);
 
-        $role->givePermissionTo(['manage_status', 'manage_source', 'lead_manager']);
+        $role->givePermissionTo(['access_admin_dashboard', 'manage_status', 'manage_source', 'lead_manager']);
 
         $user = User::create([
             'name' => 'Faysal Ahamed',
