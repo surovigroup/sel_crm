@@ -27,8 +27,7 @@
                                             <td>{{$status->name}}</td>
                                             <td>{{$status->color}}</td>
                                             <td>
-                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/statuss/{{$status->id}}/edit">Edit</a>
-                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/statuss/{{$status->id}}">Show</a>
+                                                <a class="btn btn-sm btn-oval btn-info" href="/admin/statuses/{{$status->id}}/edit">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

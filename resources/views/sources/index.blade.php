@@ -26,7 +26,6 @@
                                             <td>{{$source->name}}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-oval btn-info" href="/admin/sources/{{$source->id}}/edit">Edit</a>
-                                                <a class="btn btn-sm btn-oval btn-primary" href="/admin/sources/{{$source->id}}">Show</a>
                                             </td>
                                         </tr>
                                     @endforeach

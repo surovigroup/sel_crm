@@ -65,11 +65,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/statuses', [StatusController::class, 'index']);
         Route::get('/statuses/create', [StatusController::class, 'create']);
         Route::post('/statuses', [StatusController::class, 'store']);
+        Route::get('/statuses/{status}/edit', [StatusController::class, 'edit']);
+        Route::patch('/statuses/{status}', [StatusController::class, 'update']);
 
         //Statuses
         Route::get('/sources', [SourceController::class, 'index']);
         Route::get('/sources/create', [SourceController::class, 'create']);
         Route::post('/sources', [SourceController::class, 'store']);
+        Route::get('/sources/{source}/edit', [SourceController::class, 'edit']);
+        Route::patch('/sources/{source}', [SourceController::class, 'update']);
 
         //Leads
         Route::get('/leads', [LeadController::class, 'index']);

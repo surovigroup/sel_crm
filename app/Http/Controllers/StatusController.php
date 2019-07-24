@@ -35,4 +35,26 @@ class StatusController extends Controller
 
         return redirect('/admin/statuses');
     }
+
+    public function edit(Status $status)
+    {
+        return view('statuses.edit', [
+            'status'    => $status
+        ]);
+    }
+
+    public function update(Request $request, Status $status)
+    {
+        $attributes = $request->validate([
+            'name'  => 'required',
+            'color'  => 'required'
+        ]);
+
+        $status->update($attributes);
+
+        Session::flash('message', 'Status updated Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/statuses');
+    }
 }

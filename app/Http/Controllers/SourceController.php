@@ -34,4 +34,26 @@ class SourceController extends Controller
 
         return redirect('/admin/sources');
     }
+
+    public function edit(Source $source)
+    {
+        return view('sources.edit', [
+            'source'    => $source
+        ]);
+    }
+
+
+    public function update(Request $request, Source $source)
+    {
+        $attributes = $request->validate([
+            'name'  => 'required|unique:sources,name,'.$source->id
+        ]);
+
+        $source->update($attributes);
+
+        Session::flash('message', 'Source Updated Successfully!!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/sources');
+    }
 }
