@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "devfaysal/laravel-admin": "^0.0.3",
+        "devfaysal/laravel-admin": "dev-master",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
