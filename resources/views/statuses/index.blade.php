@@ -25,7 +25,7 @@
                                         <tr>
                                             <th scope="row">{{$status->id}}</th>
                                             <td>{{$status->name}}</td>
-                                            <td>{{$status->color}}</td>
+                                            <td><span class="badge" style="color: #000; background-color: {{$status->color}}; ">{{$status->name}}</span></td>
                                             <td>
                                                 <a class="btn btn-sm btn-oval btn-info" href="/admin/statuses/{{$status->id}}/edit">Edit</a>
                                             </td>
