@@ -7,6 +7,7 @@ use App\User;
 use App\Source;
 use App\Status;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Session;
 
 class LeadController extends Controller
@@ -114,5 +115,34 @@ class LeadController extends Controller
             'statuses'  => $statuses,
             'lead'      => $lead
         ]);
+    }
+
+    public function datatable()
+    {
+        if(auth()->user()->hasRole('admin')){
+            $leads = Lead::all();
+        }else{
+            $leads = Lead::where('user_assigned_id', auth()->user()->id)->get();
+        }
+
+        return DataTables::of($leads)
+            ->addColumn('action', function($lead) {
+                $string = '';
+                $string .= '<a class="btn btn-sm btn-oval btn-info" href="'. route('leads.edit', $lead->id) .'">Edit</a>';
+                $string .= ' <a class="btn btn-sm btn-oval btn-primary" href="'. route('leads.show', $lead->id) .'">Show</a>';
+                return $string;
+            })
+            ->addColumn('status', function($lead) {
+                $string = '<span class="badge" style="color: #000; background-color: '. $lead->status->color .'; ">'. $lead->status->name .'</span>';
+                return $string;
+            })
+            ->addColumn('created_by', function($lead) {
+                return $lead->createdBy->name;
+            })
+            ->addColumn('created_at', function($lead) {
+                return $lead->created_at->format('d-m-y');
+            })
+            ->rawColumns(['action', 'status'])
+            ->make(true);
     }
 }

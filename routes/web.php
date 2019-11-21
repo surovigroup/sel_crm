@@ -42,10 +42,11 @@ Route::prefix('admin')->group(function () {
 
         //Leads
         Route::get('/leads', [LeadController::class, 'index']);
+        Route::get('/leads/datatable', [LeadController::class, 'datatable'])->name('leads.datatable');
         Route::get('/leads/create', [LeadController::class, 'create']);
         Route::post('/leads', [LeadController::class, 'store']);
-        Route::get('/leads/{lead}', [LeadController::class, 'show']);
-        Route::get('/leads/{lead}/edit', [LeadController::class, 'edit']);
+        Route::get('/leads/{lead}', [LeadController::class, 'show'])->name('leads.show');
+        Route::get('/leads/{lead}/edit', [LeadController::class, 'edit'])->name('leads.edit');
         Route::patch('/leads/{lead}', [LeadController::class, 'update']);
         Route::put('/leads/{lead}', [LeadController::class, 'updateStatus']);
     });
