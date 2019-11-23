@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/devfaysal/laravel-admin.git",
-                "reference": "34f847e2df47b9089f919869a3cd660ed11cfd57"
+                "reference": "defd481b0962067ca73550471a98197adb95ad5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/34f847e2df47b9089f919869a3cd660ed11cfd57",
-                "reference": "34f847e2df47b9089f919869a3cd660ed11cfd57",
+                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/defd481b0962067ca73550471a98197adb95ad5f",
+                "reference": "defd481b0962067ca73550471a98197adb95ad5f",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "devfaysal",
                 "laravel-admin"
             ],
-            "time": "2019-11-21T06:41:36+00:00"
+            "time": "2019-11-23T06:41:45+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
