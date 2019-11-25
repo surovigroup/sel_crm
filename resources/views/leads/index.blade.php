@@ -11,34 +11,36 @@
                     </div>
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">
-                            <table id="leads-table" class="table table-hover" style="width:100%" class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="hide">#</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Source</th>
-                                        <th>Created By</th>
-                                        <th>Created at</th>
-                                        <th>Status</th>
-                                        <th class="hide">Action</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th class="hide">#</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Source</th>
-                                        <th>Created By</th>
-                                        <th>Created at</th>
-                                        <th>Status</th>
-                                        <th class="hide">Action</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="leads-table" class="table table-hover" style="width:100%" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="hide">#</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Source</th>
+                                            <th>Created By</th>
+                                            <th>Created at</th>
+                                            <th>Status</th>
+                                            <th class="hide">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th class="hide">#</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Source</th>
+                                            <th>Created By</th>
+                                            <th>Created at</th>
+                                            <th>Status</th>
+                                            <th class="hide">Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
