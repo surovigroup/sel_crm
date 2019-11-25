@@ -28,12 +28,26 @@ class LeadController extends Controller
     public function create()
     {
         $lead_managers = $users = User::permission('lead_manager')->get();
-        $statuses = Status::all();
-        $sources = Source::all();
+        $lead_manager_options = [];
+        foreach($lead_managers as $lead_manager){
+            $lead_manager_options[$lead_manager->id] = $lead_manager->name;
+        }
+
+        $statuses = Status::get();
+        $status_options = [];
+        foreach($statuses as $status){
+            $status_options[$status->id] = $status->name;
+        }
+
+        $sources = Source::get();
+        $source_options = [];
+        foreach($sources as $source){
+            $source_options[$source->name] = $source->name;
+        }
         return view('leads.create', [
-            'lead_managers' => $lead_managers,
-            'statuses'      => $statuses,
-            'sources'       => $sources
+            'lead_managers' => $lead_manager_options,
+            'statuses'      => $status_options,
+            'sources'       => $source_options
         ]);
     }
 
@@ -41,8 +55,8 @@ class LeadController extends Controller
     {
         $attributes = $request->validate([
             'name'      => 'required',
-            'phone'     => 'required|unique:leads',
-            'email'     => 'nullable|email',
+            'phone'     => 'required|digits:11|unique:leads',
+            'email'     => 'nullable|email|unique:leads',
             'source'    => 'required',
         ]);
 
@@ -62,13 +76,27 @@ class LeadController extends Controller
     public function edit(Lead $lead)
     {
         $lead_managers = $users = User::permission('lead_manager')->get();
-        $statuses = Status::all();
-        $sources = Source::all();
+        $lead_manager_options = [];
+        foreach($lead_managers as $lead_manager){
+            $lead_manager_options[$lead_manager->id] = $lead_manager->name;
+        }
+
+        $statuses = Status::get();
+        $status_options = [];
+        foreach($statuses as $status){
+            $status_options[$status->id] = $status->name;
+        }
+
+        $sources = Source::get();
+        $source_options = [];
+        foreach($sources as $source){
+            $source_options[$source->name] = $source->name;
+        }
         return view('leads.edit', [
             'lead'          => $lead,
-            'lead_managers' => $lead_managers,
-            'statuses'      => $statuses,
-            'sources'       => $sources
+            'lead_managers' => $lead_manager_options,
+            'statuses'      => $status_options,
+            'sources'       => $source_options
         ]);
     }
 
@@ -77,8 +105,8 @@ class LeadController extends Controller
     {
         $attributes = $request->validate([
             'name'      => 'required',
-            'phone'     => 'required|unique:leads,phone,' . $lead->id,
-            'email'     => 'nullable|email',
+            'phone'     => 'required|digits:11|unique:leads,phone,' . $lead->id,
+            'email'     => 'nullable|email|unique:leads,email,' . $lead->id,
             'source'    => 'required',
         ]);
 
