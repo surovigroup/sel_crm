@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddApiTokenFieldToUsersTable extends Migration
+class CreateDivisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddApiTokenFieldToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('api_token', 80)->unique()->nullable()->default(null);
+        Schema::create('divisions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('bn_name')->nullable();
+            $table->string('url')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddApiTokenFieldToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('api_token');
-        });
+        Schema::dropIfExists('divisions');
     }
 }

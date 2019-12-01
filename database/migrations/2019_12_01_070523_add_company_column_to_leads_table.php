@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddApiTokenFieldToUsersTable extends Migration
+class AddCompanyColumnToLeadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddApiTokenFieldToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('api_token', 80)->unique()->nullable()->default(null);
+        Schema::table('leads', function (Blueprint $table) {
+            $table->string('company')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddApiTokenFieldToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('api_token');
+        Schema::table('leads', function (Blueprint $table) {
+            $table->dropColumn('company');
         });
     }
 }

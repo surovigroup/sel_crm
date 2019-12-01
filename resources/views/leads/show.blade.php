@@ -6,8 +6,11 @@
             <div class="card sameheight-item" data-exclude="xs">
                 <div class="card-block">
                     <div class="title-block">
-                        <h4 class="title">{{$lead->name}} <span class="badge" style="color: #000; background-color: {{$lead->status->color}}; ">{{$lead->status->name}}</span></h4>
+                        <h3>{{$lead->name}} <span class="badge" style="color: #000; background-color: {{$lead->status->color}}; ">{{$lead->status->name}}</span></h2>
                     </div>
+                    @if($lead->division || $lead->district || $lead->upazila)
+                    <p><span class="pr-2 fa fa-map-marker"> </span> {{ implode( ', ', array_filter( [$lead->upazila, $lead->district, $lead->division] ) ) }}</p>
+                    @endif
                     <p><span class="pr-2 fa fa-phone"> </span> {{$lead->phone}}</p>
                     <p><span class="pr-2 fa fa-envelope"> </span> {{$lead->email ?? 'N/A'}}</p>
                     <p><span class="pr-2 fa fa-comment"> </span> {{$lead->description ?? 'N/A'}}</p>

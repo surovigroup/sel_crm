@@ -18,7 +18,7 @@
                                             <th class="hide">#</th>
                                             <th>Name</th>
                                             <th>Phone</th>
-                                            <th>Email</th>
+                                            <th>Location</th>
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
@@ -31,7 +31,7 @@
                                             <th class="hide">#</th>
                                             <th>Name</th>
                                             <th>Phone</th>
-                                            <th>Email</th>
+                                            <th>Location</th>
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
@@ -61,7 +61,7 @@
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'phone', name: 'phone'},
-            {data: 'email', name: 'email'},
+            {data: 'district', name: 'district'},
             {data: 'source', name: 'source'},
             {data: 'created_by', name: 'created_by'},
             {data: 'created_at', name: 'created_at'},

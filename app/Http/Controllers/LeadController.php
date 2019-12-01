@@ -9,20 +9,17 @@ use App\Status;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Session;
+use Devfaysal\BangladeshGeocode\Models\Upazila;
+use Devfaysal\BangladeshGeocode\Models\District;
+use Devfaysal\BangladeshGeocode\Models\Division;
 
 class LeadController extends Controller
 {
 
     public function index()
     {
-        if(auth()->user()->hasRole('admin')){
-            $leads = Lead::all();
-        }else{
-            $leads = Lead::where('user_assigned_id', auth()->user()->id)->get();
-        }
-        return view('leads.index', [
-            'leads' => $leads
-        ]);
+
+        return view('leads.index');
     }
 
     public function create()
@@ -44,10 +41,17 @@ class LeadController extends Controller
         foreach($sources as $source){
             $source_options[$source->name] = $source->name;
         }
+        $divisions = Division::get()->pluck('name', 'name')->toArray();
+        $districts = District::get()->pluck('name', 'name')->toArray();
+        $upazilas = Upazila::get()->pluck('name', 'name')->toArray();
+        
         return view('leads.create', [
             'lead_managers' => $lead_manager_options,
             'statuses'      => $status_options,
-            'sources'       => $source_options
+            'sources'       => $source_options,
+            'divisions'     => $divisions,
+            'districts'     => $districts,
+            'upazilas'      => $upazilas,
         ]);
     }
 
@@ -58,6 +62,10 @@ class LeadController extends Controller
             'phone'     => 'required|digits:11|unique:leads',
             'email'     => 'nullable|email|unique:leads',
             'source'    => 'required',
+            'company'   => 'nullable',
+            'district'  => 'nullable',
+            'division'  => 'nullable',
+            'upazila'   => 'nullable',
         ]);
 
         $attributes['description'] = $request->description;
@@ -92,11 +100,17 @@ class LeadController extends Controller
         foreach($sources as $source){
             $source_options[$source->name] = $source->name;
         }
+        $divisions = Division::get()->pluck('name', 'name')->toArray();
+        $districts = District::get()->pluck('name', 'name')->toArray();
+        $upazilas = Upazila::get()->pluck('name', 'name')->toArray();
         return view('leads.edit', [
             'lead'          => $lead,
             'lead_managers' => $lead_manager_options,
             'statuses'      => $status_options,
-            'sources'       => $source_options
+            'sources'       => $source_options,
+            'divisions'     => $divisions,
+            'districts'     => $districts,
+            'upazilas'      => $upazilas,
         ]);
     }
 
@@ -108,6 +122,10 @@ class LeadController extends Controller
             'phone'     => 'required|digits:11|unique:leads,phone,' . $lead->id,
             'email'     => 'nullable|email|unique:leads,email,' . $lead->id,
             'source'    => 'required',
+            'company'   => 'nullable',
+            'district'  => 'nullable',
+            'division'  => 'nullable',
+            'upazila'   => 'nullable',
         ]);
 
         $attributes['description'] = $request->description;

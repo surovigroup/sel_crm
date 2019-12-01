@@ -12,10 +12,14 @@ $factory->define(Lead::class, function (Faker $faker) {
         'user_created_id'   => factory(User::class),
         'user_assigned_id'  => factory(User::class),
         'name'              => $faker->name,
-        'phone'             => $faker->phoneNumber,
+        'phone'             => '01718817110',
         'email'             => $faker->email,
         'source'            => $faker->word,
-        'description'      => $faker->sentence,
+        'description'       => $faker->sentence,
+        'company'           => 'Microsoft',
+        'division'          => 'Dhaka',
+        'district'          => 'Gazipur',
+        'upazila'           => 'Amraid',
         'status_id'         => factory(Status::class)
     ];
 });

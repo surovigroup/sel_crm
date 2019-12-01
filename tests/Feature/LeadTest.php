@@ -22,8 +22,6 @@ class LeadTest extends TestCase
         $this->actingAs(factory(User::class)->create());
         $attributes = factory(Lead::class)->raw();
         unset($attributes['user_created_id']);
-        unset($attributes['user_assigned_id']);
-        unset($attributes['status_id']);
 
         foreach($attributes as $attribute => $value){
             $this->get('/admin/leads/create')->assertSee($attribute);
