@@ -19,12 +19,14 @@ class DatabaseSeeder extends Seeder
 
         Permission::create(['name' => 'manage_status']);
         Permission::create(['name' => 'manage_source']);
+        Permission::create(['name' => 'manage_stock']);
 
         $user = User::find(1);
 
         $user->givePermissionTo([
             'manage_status',
-            'manage_source'
+            'manage_source',
+            'manage_stock'
         ]);
     }
 }

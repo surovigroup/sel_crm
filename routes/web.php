@@ -5,6 +5,7 @@ use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\TechplatoonController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -49,6 +50,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/leads/{lead}/edit', [LeadController::class, 'edit'])->name('leads.edit');
         Route::patch('/leads/{lead}', [LeadController::class, 'update']);
         Route::put('/leads/{lead}', [LeadController::class, 'updateStatus']);
+    });
+
+    Route::group(['middleware' => ['admin']], function () {
+        Route::get('techplatoon/brands/{brand}', [TechplatoonController::class, 'brand'])->name('techplatoon.brand');
     });
     
 });
