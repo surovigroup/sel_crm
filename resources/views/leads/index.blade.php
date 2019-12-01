@@ -19,6 +19,7 @@
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Location</th>
+                                            <th>Company</th>
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
@@ -32,6 +33,7 @@
                                             <th>Name</th>
                                             <th>Phone</th>
                                             <th>Location</th>
+                                            <th>Company</th>
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
@@ -58,10 +60,11 @@
         serverSide: true,
         ajax: '{{route('leads.datatable')}}',
         columns: [
-            {data: 'id', name: 'id'},
+            {data: 'id', name: 'id', visible: false},
             {data: 'name', name: 'name'},
             {data: 'phone', name: 'phone'},
             {data: 'district', name: 'district'},
+            {data: 'company', name: 'company'},
             {data: 'source', name: 'source'},
             {data: 'created_by', name: 'created_by'},
             {data: 'created_at', name: 'created_at'},

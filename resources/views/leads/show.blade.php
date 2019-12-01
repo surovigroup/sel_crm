@@ -7,6 +7,7 @@
                 <div class="card-block">
                     <div class="title-block">
                         <h3>{{$lead->name}} <span class="badge" style="color: #000; background-color: {{$lead->status->color}}; ">{{$lead->status->name}}</span></h2>
+                        <p>{{$lead->company}}</p>
                     </div>
                     @if($lead->division || $lead->district || $lead->upazila)
                     <p><span class="pr-2 fa fa-map-marker"> </span> {{ implode( ', ', array_filter( [$lead->upazila, $lead->district, $lead->division] ) ) }}</p>
