@@ -24,34 +24,13 @@ class LeadController extends Controller
 
     public function create()
     {
-        $lead_managers = $users = User::permission('lead_manager')->get();
-        $lead_manager_options = [];
-        foreach($lead_managers as $lead_manager){
-            $lead_manager_options[$lead_manager->id] = $lead_manager->name;
-        }
-
-        $statuses = Status::get();
-        $status_options = [];
-        foreach($statuses as $status){
-            $status_options[$status->id] = $status->name;
-        }
-
-        $sources = Source::get();
-        $source_options = [];
-        foreach($sources as $source){
-            $source_options[$source->name] = $source->name;
-        }
-        $divisions = Division::get()->pluck('name', 'name')->toArray();
-        $districts = District::get()->pluck('name', 'name')->toArray();
-        $upazilas = Upazila::get()->pluck('name', 'name')->toArray();
-        
         return view('leads.create', [
-            'lead_managers' => $lead_manager_options,
-            'statuses'      => $status_options,
-            'sources'       => $source_options,
-            'divisions'     => $divisions,
-            'districts'     => $districts,
-            'upazilas'      => $upazilas,
+            'lead_managers' => User::permission('lead_manager')->pluck('name', 'id')->toArray(),
+            'statuses'      => Status::pluck('name', 'id')->toArray(),
+            'sources'       => Source::pluck('name', 'name')->toArray(),
+            'divisions'     => Division::pluck('name', 'name')->toArray(),
+            'districts'     => District::pluck('name', 'name')->toArray(),
+            'upazilas'      => Upazila::pluck('name', 'name')->toArray(),
         ]);
     }
 
@@ -83,34 +62,14 @@ class LeadController extends Controller
 
     public function edit(Lead $lead)
     {
-        $lead_managers = $users = User::permission('lead_manager')->get();
-        $lead_manager_options = [];
-        foreach($lead_managers as $lead_manager){
-            $lead_manager_options[$lead_manager->id] = $lead_manager->name;
-        }
-
-        $statuses = Status::get();
-        $status_options = [];
-        foreach($statuses as $status){
-            $status_options[$status->id] = $status->name;
-        }
-
-        $sources = Source::get();
-        $source_options = [];
-        foreach($sources as $source){
-            $source_options[$source->name] = $source->name;
-        }
-        $divisions = Division::get()->pluck('name', 'name')->toArray();
-        $districts = District::get()->pluck('name', 'name')->toArray();
-        $upazilas = Upazila::get()->pluck('name', 'name')->toArray();
         return view('leads.edit', [
             'lead'          => $lead,
-            'lead_managers' => $lead_manager_options,
-            'statuses'      => $status_options,
-            'sources'       => $source_options,
-            'divisions'     => $divisions,
-            'districts'     => $districts,
-            'upazilas'      => $upazilas,
+            'lead_managers' => User::permission('lead_manager')->pluck('name', 'id')->toArray(),
+            'statuses'      => Status::pluck('name', 'id')->toArray(),
+            'sources'       => Source::pluck('name', 'name')->toArray(),
+            'divisions'     => Division::pluck('name', 'name')->toArray(),
+            'districts'     => District::pluck('name', 'name')->toArray(),
+            'upazilas'      => Upazila::pluck('name', 'name')->toArray(),
         ]);
     }
 
