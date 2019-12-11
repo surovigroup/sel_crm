@@ -63,6 +63,12 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => '10.10.10.252',
+            'username' => 'crmfpt',
+            'password' => 'Hell0W0r|dpW',
+        ],
 
     ],
 
