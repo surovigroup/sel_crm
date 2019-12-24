@@ -31,6 +31,12 @@
         <li class="{{(request()->is('admin/techplatoon/brands/358')) ? 'active' : '' }}">
             <a href="/admin/techplatoon/brands/358"> <i class="fa fa-briefcase"> </i> Energizer </a>
         </li>
+        <li class="{{(request()->is('admin/techplatoon/brands/364')) ? 'active' : '' }}">
+            <a href="/admin/techplatoon/brands/364"> <i class="fa fa-briefcase"> </i> Feeltek </a>
+        </li>
+        <li class="{{(request()->is('admin/techplatoon/brands/365')) ? 'active' : '' }}">
+            <a href="/admin/techplatoon/brands/365"> <i class="fa fa-briefcase"> </i> Hoco </a>
+        </li>
         <li class="{{(request()->is('admin/techplatoon/brands/111')) ? 'active' : '' }}">
             <a href="/admin/techplatoon/brands/111"> <i class="fa fa-briefcase"> </i> I-Life </a>
         </li>
