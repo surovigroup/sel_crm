@@ -3,10 +3,10 @@
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\TechplatoonController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\PermissionController;
 
@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => ['admin']], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
         //Statuses
         Route::get('/statuses', [StatusController::class, 'index']);
         Route::get('/statuses/create', [StatusController::class, 'create']);
