@@ -125,9 +125,9 @@ class LeadController extends Controller
     public function datatable()
     {
         if(auth()->user()->hasRole('admin')){
-            $leads = Lead::all();
+            $leads = Lead::query();
         }else{
-            $leads = Lead::where('user_assigned_id', auth()->user()->id)->get();
+            $leads = Lead::where('user_assigned_id', auth()->user()->id);
         }
 
         return DataTables::of($leads)

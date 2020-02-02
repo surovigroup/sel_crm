@@ -9,10 +9,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Lead::class, function (Faker $faker) {
     return [
-        'user_created_id'   => factory(User::class),
-        'user_assigned_id'  => factory(User::class),
+        'user_created_id'   => 1,
+        'user_assigned_id'  => 1,
         'name'              => $faker->name,
-        'phone'             => '01718817110',
+        'phone'             => $faker->PhoneNumber,
         'email'             => $faker->email,
         'source'            => $faker->word,
         'description'       => $faker->sentence,

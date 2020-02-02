@@ -8,7 +8,7 @@ class Lead extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['asignedTo', 'status', 'createdBy'];
+    protected $with = ['status', 'createdBy'];
 
     public function asignedTo()
     {
