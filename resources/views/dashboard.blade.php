@@ -28,8 +28,8 @@
                                 <i class="fa fa-shopping-cart"></i>
                             </div>
                             <div class="stat">
-                                <div class="value"> 78464 </div>
-                                <div class="name"> Items sold </div>
+                                <div class="value"> {{ $sourceCount }} </div>
+                                <div class="name"> Sources </div>
                             </div>
                             <div class="progress stat-progress">
                                 <div class="progress-bar" style="width: 25%;"></div>

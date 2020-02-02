@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lead;
+use App\Source;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,6 +12,7 @@ class DashboardController extends Controller
     {
         return view('dashboard', [
             'leadCount' => Lead::count(),
+            'sourceCount' => Source::count(),
         ]);
     }
 }

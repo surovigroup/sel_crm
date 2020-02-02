@@ -8,6 +8,8 @@ class Lead extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['asignedTo', 'status', 'createdBy'];
+
     public function asignedTo()
     {
         return $this->belongsTo(User::class, 'user_assigned_id');
