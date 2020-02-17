@@ -5,7 +5,7 @@
         @csrf
         @method('PATCH')
         <div class="row sameheight-container">
-            <div class="col col-12 col-sm-12 col-md-6 col-xl-6">
+            <div class="col col-12 col-sm-12 col-md-6 col-xl-8">
                 <div class="card sameheight-item" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
