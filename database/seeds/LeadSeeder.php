@@ -17,7 +17,7 @@ class LeadSeeder extends Seeder
         $faker = Faker::create('en_BD');
         $status_count = Status::count();
 
-        foreach(range(1,200) as $lead){
+        foreach(range(1,50) as $lead){
             $lead_data['user_created_id'] = 1;
             $lead_data['user_assigned_id'] = 1;
             $lead_data['name'] = $faker->name;

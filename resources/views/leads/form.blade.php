@@ -84,9 +84,9 @@
     </div>
     <div class="col-md-4">
         @include('laravel-admin::form.select', [
-            'name'  =>  'user_assigned_id',
+            'name'  =>  'admin_assigned_id',
             'label' =>  'Assign to',
-            'value' =>  $lead->user_assigned_id,
+            'value' =>  $lead->admin_assigned_id,
             'data'  =>  $lead_managers
         ])
     </div>
@@ -111,6 +111,6 @@
         searchable_select('#upazila');
         searchable_select('#source');
         searchable_select('#status_id');
-        searchable_select('#user_assigned_id');
+        searchable_select('#admin_assigned_id');
     </script>
 @endsection

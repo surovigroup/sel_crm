@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Lead;
-use App\User;
 use App\Source;
 use App\Status;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Session;
+use Devfaysal\LaravelAdmin\Models\Admin;
 use Devfaysal\BangladeshGeocode\Models\Upazila;
 use Devfaysal\BangladeshGeocode\Models\District;
 use Devfaysal\BangladeshGeocode\Models\Division;
@@ -25,7 +25,7 @@ class LeadController extends Controller
     public function create()
     {
         return view('leads.create', [
-            'lead_managers' => User::permission('lead_manager')->pluck('name', 'id')->toArray(),
+            'lead_managers' => Admin::permission('lead_manager', 'admin')->pluck('name', 'id')->toArray(),
             'statuses'      => Status::pluck('name', 'id')->toArray(),
             'sources'       => Source::pluck('name', 'name')->toArray(),
             'divisions'     => Division::pluck('name', 'name')->toArray(),
@@ -48,8 +48,8 @@ class LeadController extends Controller
         ]);
 
         $attributes['description'] = $request->description;
-        $attributes['user_created_id'] = auth()->user()->id;
-        $attributes['user_assigned_id'] = $request->user_assigned_id ?? auth()->user()->id;
+        $attributes['admin_created_id'] = auth()->user()->id;
+        $attributes['admin_assigned_id'] = $request->admin_assigned_id ?? auth()->user()->id;
         $attributes['status_id'] = $request->status_id ?? Status::first()->id;
 
         Lead::create($attributes);
@@ -64,7 +64,7 @@ class LeadController extends Controller
     {
         return view('leads.edit', [
             'lead'          => $lead,
-            'lead_managers' => User::permission('lead_manager')->pluck('name', 'id')->toArray(),
+            'lead_managers' => Admin::permission('lead_manager','admin')->pluck('name', 'id')->toArray(),
             'statuses'      => Status::pluck('name', 'id')->toArray(),
             'sources'       => Source::pluck('name', 'name')->toArray(),
             'divisions'     => Division::pluck('name', 'name')->toArray(),
@@ -88,7 +88,7 @@ class LeadController extends Controller
         ]);
 
         $attributes['description'] = $request->description;
-        $attributes['user_assigned_id'] = $request->user_assigned_id ?? auth()->user()->id;
+        $attributes['admin_assigned_id'] = $request->admin_assigned_id ?? auth()->user()->id;
         $attributes['status_id'] = $request->status_id ?? Status::first()->id;
 
         $lead->update($attributes);

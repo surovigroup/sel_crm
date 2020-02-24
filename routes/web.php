@@ -26,8 +26,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::group(['middleware' => ['admin']], function () {
-        Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::group(['middleware' => ['admin.auth:admin']], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
         //Statuses
         Route::get('/statuses', [StatusController::class, 'index']);
         Route::get('/statuses/create', [StatusController::class, 'create']);

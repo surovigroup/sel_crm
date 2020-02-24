@@ -1,9 +1,9 @@
 <?php
 
-use App\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Devfaysal\LaravelAdmin\Models\Admin;
 use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
@@ -20,14 +20,14 @@ class DatabaseSeeder extends Seeder
         $this->call(DistrictSeeder::class);
         $this->call(DivisionSeeder::class);
 
-        Permission::create(['name' => 'manage_status']);
-        Permission::create(['name' => 'manage_source']);
-        Permission::create(['name' => 'manage_stock']);
-        Permission::create(['name' => 'lead_manager']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'manage_status']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'manage_source']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'manage_stock']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
 
-        $user = User::find(1);
+        $admin = Admin::find(1);
 
-        $user->givePermissionTo([
+        $admin->givePermissionTo([
             'manage_status',
             'manage_source',
             'manage_stock',

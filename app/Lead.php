@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Devfaysal\LaravelAdmin\Models\Admin;
 
 class Lead extends Model
 {
@@ -12,7 +13,7 @@ class Lead extends Model
 
     public function asignedTo()
     {
-        return $this->belongsTo(User::class, 'user_assigned_id');
+        return $this->belongsTo(Admin::class, 'admin_assigned_id');
     }
 
     public function status()
@@ -22,6 +23,6 @@ class Lead extends Model
 
     public function createdBy()
     {
-        return $this->belongsTo(User::class, 'user_created_id');
+        return $this->belongsTo(Admin::class, 'admin_created_id');
     }
 }

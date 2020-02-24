@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Lead;
-use App\User;
 use Tests\TestCase;
+use Devfaysal\LaravelAdmin\Models\Admin;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,10 +18,10 @@ class LeadTest extends TestCase
     public function authenticated_users_can_access_lead_create_page()
     {
         $this->withoutExceptionHandling();
-        Permission::create(['name' => 'lead_manager']);
-        $this->actingAs(factory(User::class)->create());
+        Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
+        $this->actingAs(factory(Admin::class)->create(), 'admin');
         $attributes = factory(Lead::class)->raw();
-        unset($attributes['user_created_id']);
+        unset($attributes['admin_created_id']);
 
         foreach($attributes as $attribute => $value){
             $this->get('/admin/leads/create')->assertSee($attribute);
@@ -35,9 +35,9 @@ class LeadTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(factory(Admin::class)->create(), 'admin');
         $attributes = factory(Lead::class)->raw();
-        $attributes['user_created_id'] = auth()->user()->id;
+        $attributes['admin_created_id'] = auth()->user()->id;
 
         $this->post('/admin/leads', $attributes);
         $this->assertDatabaseHas('leads', $attributes);

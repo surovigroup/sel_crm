@@ -15,8 +15,8 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_created_id');
-            $table->unsignedBigInteger('user_assigned_id');
+            $table->unsignedBigInteger('admin_created_id');
+            $table->unsignedBigInteger('admin_assigned_id');
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('email')->nullable();
@@ -25,8 +25,8 @@ class CreateLeadsTable extends Migration
             $table->unsignedBigInteger('status_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_created_id')->references('id')->on('users');
-            $table->foreign('user_assigned_id')->references('id')->on('users');
+            $table->foreign('admin_created_id')->references('id')->on('admins');
+            $table->foreign('admin_assigned_id')->references('id')->on('admins');
             $table->foreign('status_id')->references('id')->on('statuses');
         });
     }
