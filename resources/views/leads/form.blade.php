@@ -90,6 +90,13 @@
             'data'  =>  $lead_managers
         ])
     </div>
+    <div class="col-md-12">
+        @include('laravel-admin::form.text', [
+            'name'  =>  'note',
+            'label' =>  'Notes',
+            'value' =>  $lead->note,
+        ])
+    </div>
 </div>
 
 <div class="form-group">

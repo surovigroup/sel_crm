@@ -45,6 +45,7 @@ class LeadController extends Controller
             'district'  => 'nullable',
             'division'  => 'nullable',
             'upazila'   => 'nullable',
+            'note'      => 'nullable',
         ]);
 
         $attributes['description'] = $request->description;
@@ -85,6 +86,7 @@ class LeadController extends Controller
             'district'  => 'nullable',
             'division'  => 'nullable',
             'upazila'   => 'nullable',
+            'note'   => 'nullable',
         ]);
 
         $attributes['description'] = $request->description;
@@ -127,7 +129,7 @@ class LeadController extends Controller
         if(auth()->user()->hasRole('admin')){
             $leads = Lead::query();
         }else{
-            $leads = Lead::where('user_assigned_id', auth()->user()->id);
+            $leads = Lead::where('admin_assigned_id', auth()->user()->id);
         }
 
         return DataTables::of($leads)

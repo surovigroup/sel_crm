@@ -18,8 +18,8 @@ class LeadSeeder extends Seeder
         $status_count = Status::count();
 
         foreach(range(1,50) as $lead){
-            $lead_data['user_created_id'] = 1;
-            $lead_data['user_assigned_id'] = 1;
+            $lead_data['admin_created_id'] = 1;
+            $lead_data['admin_assigned_id'] = 1;
             $lead_data['name'] = $faker->name;
             $lead_data['phone'] = $faker->PhoneNumber;
             $lead_data['email'] = $faker->email;

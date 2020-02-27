@@ -20,6 +20,7 @@
                                             <th>Phone</th>
                                             <th>Location</th>
                                             <th>Company</th>
+                                            <th>Note</th>
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
@@ -51,6 +52,7 @@
             {data: 'phone', name: 'phone'},
             {data: 'district', name: 'district'},
             {data: 'company', name: 'company'},
+            {data: 'note', name: 'note'},
             {data: 'source', name: 'source'},
             {data: 'created_by', name: 'created_by'},
             {data: 'created_at', name: 'created_at'},

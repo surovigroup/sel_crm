@@ -60,12 +60,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/devfaysal/laravel-admin.git",
-                "reference": "1cf120996b38b5a4510b9c0acf5e23030329d291"
+                "reference": "d9ca3b14b8d00db31c0fd4a4a255aecbcb795f42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/1cf120996b38b5a4510b9c0acf5e23030329d291",
-                "reference": "1cf120996b38b5a4510b9c0acf5e23030329d291",
+                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/d9ca3b14b8d00db31c0fd4a4a255aecbcb795f42",
+                "reference": "d9ca3b14b8d00db31c0fd4a4a255aecbcb795f42",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "devfaysal",
                 "laravel-admin"
             ],
-            "time": "2020-02-24T09:33:30+00:00"
+            "time": "2020-02-27T06:47:14+00:00"
         },
         {
             "name": "devfaysal/laravel-bangladesh-geocode",
@@ -590,16 +590,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.16.0",
+            "version": "v6.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55"
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b47217e41868d3049ec545cbb713aa94c6f39e55",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-02-18T15:17:52+00:00"
+            "time": "2020-02-26T14:23:01+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1751,16 +1751,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.8.0",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "2339b6fae8f8aa5af047e1a0c54b6fb37546058a"
+                "reference": "ac0fc4cd809b1fe7ecbe9876e03bb5849601bf66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/2339b6fae8f8aa5af047e1a0c54b6fb37546058a",
-                "reference": "2339b6fae8f8aa5af047e1a0c54b6fb37546058a",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/ac0fc4cd809b1fe7ecbe9876e03bb5849601bf66",
+                "reference": "ac0fc4cd809b1fe7ecbe9876e03bb5849601bf66",
                 "shasum": ""
             },
             "require": {
@@ -1815,7 +1815,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2020-02-18T21:16:24+00:00"
+            "time": "2020-02-26T16:23:16+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -4310,16 +4310,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.0.0",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f"
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/a48807183a4b819072f26e347bbd0b5199a9d15f",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
                 "shasum": ""
             },
             "require": {
@@ -4359,7 +4359,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-09T09:16:15+00:00"
+            "time": "2020-02-22T12:28:44+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -4464,16 +4464,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.24",
+            "version": "2.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "40998159a0907cc523e1f2d1904d45765613a617"
+                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/40998159a0907cc523e1f2d1904d45765613a617",
-                "reference": "40998159a0907cc523e1f2d1904d45765613a617",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
+                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
                 "shasum": ""
             },
             "require": {
@@ -4552,7 +4552,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-02-04T12:15:04+00:00"
+            "time": "2020-02-25T04:16:50+00:00"
         },
         {
             "name": "phpspec/prophecy",
