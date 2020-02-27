@@ -46,9 +46,4 @@ class TechplatoonController extends Controller
 
         return json_encode($response);
     }
-
-    public function test()
-    {
-        return 'working';
-    }
 }
