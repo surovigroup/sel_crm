@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::group(['middleware' => ['admin.auth:admin']], function () {
+    Route::group(['middleware' => ['admin.auth:admin', 'permission:access_admin_dashboard']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
         //Statuses
         Route::get('/statuses', [StatusController::class, 'index']);
@@ -51,10 +51,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/leads/{lead}/edit', [LeadController::class, 'edit'])->name('leads.edit');
         Route::patch('/leads/{lead}', [LeadController::class, 'update']);
         Route::put('/leads/{lead}', [LeadController::class, 'updateStatus']);
+
+        Route::group(['middleware' => ['permission:manage_stock']], function () {
+            Route::get('techplatoon/brands/{brand}', [TechplatoonController::class, 'brand'])->name('techplatoon.brand');
+        });
     });
 
-    Route::group(['middleware' => ['admin']], function () {
-        Route::get('techplatoon/brands/{brand}', [TechplatoonController::class, 'brand'])->name('techplatoon.brand');
-    });
-    
 });

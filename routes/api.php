@@ -14,6 +14,6 @@ use App\Http\Controllers\TechplatoonController;
 |
 */
 
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'api'], function () {
     Route::post('/products', [TechplatoonController::class, 'update']);
 });
