@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Lead;
 use App\Source;
 use App\Status;
+use App\Exports\LeadsExport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use Devfaysal\LaravelAdmin\Models\Admin;
 use Devfaysal\BangladeshGeocode\Models\Upazila;
@@ -151,5 +153,11 @@ class LeadController extends Controller
             })
             ->rawColumns(['action', 'status'])
             ->make(true);
+    }
+
+    public function export() 
+    {
+        $filename = 'leads' . time() . '.xlsx';
+        return Excel::download(new LeadsExport, $filename);
     }
 }
