@@ -8,24 +8,26 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2.5",
         "automattic/woocommerce": "^3.0",
         "devfaysal/laravel-admin": "dev-master",
-        "devfaysal/laravel-bangladesh-geocode": "^0.2.0",
-        "fideloper/proxy": "^4.0",
-        "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0",
+        "devfaysal/laravel-bangladesh-geocode": "^0.4",
+        "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "laravel/framework": "^7.0",
+        "laravel/tinker": "^2.0",
         "maatwebsite/excel": "^3.1",
-        "spatie/laravel-backup": "^6.7",
-        "spatie/laravel-permission": "^3.2"
+        "spatie/laravel-backup": "^6.7"
     },
     "require-dev": {
-        "facade/ignition": "^1.4",
+        "facade/ignition": "^2.0",
         "fzaninotto/faker": "dev-master",
-        "laravel/telescope": "^2.1",
+        "laravel/dusk": "^5.8",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0"
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^9.0",
+        "laravel/telescope": "^3.1"
     },
     "config": {
         "optimize-autoloader": true,
