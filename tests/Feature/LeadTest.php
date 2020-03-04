@@ -18,8 +18,14 @@ class LeadTest extends TestCase
     public function authenticated_users_can_access_lead_create_page()
     {
         $this->withoutExceptionHandling();
+        $admin = factory(Admin::class)->create();
+        Permission::create(['guard_name' => 'admin', 'name' => 'access_admin_dashboard']);
         Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
-        $this->actingAs(factory(Admin::class)->create(), 'admin');
+        $admin->givePermissionTo([
+            'access_admin_dashboard',
+            'lead_manager'
+        ]);
+        $this->actingAs($admin, 'admin');
         $attributes = factory(Lead::class)->raw();
         unset($attributes['admin_created_id']);
 
@@ -34,8 +40,14 @@ class LeadTest extends TestCase
     public function authenticated_users_can_create_leads()
     {
         $this->withoutExceptionHandling();
-
-        $this->actingAs(factory(Admin::class)->create(), 'admin');
+        $admin = factory(Admin::class)->create();
+        Permission::create(['guard_name' => 'admin', 'name' => 'access_admin_dashboard']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
+        $admin->givePermissionTo([
+            'access_admin_dashboard',
+            'lead_manager'
+        ]);
+        $this->actingAs($admin, 'admin');
         $attributes = factory(Lead::class)->raw();
         $attributes['admin_created_id'] = auth()->user()->id;
 
