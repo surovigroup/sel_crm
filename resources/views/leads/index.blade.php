@@ -12,7 +12,7 @@
                     <div class="row row-sm">
                         <div class="col-12 col-sm-12">
                             <div class="table-responsive">
-                                <table id="leads-table" class="table table-hover" style="width:100%" class="table table-hover">
+                                <table id="leads-table" class="table table-hover" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th class="hide">#</th>
@@ -45,18 +45,19 @@
         order: [[ 0, "desc" ]],
         processing: true,
         serverSide: true,
+        responsive: true,
         ajax: '{{route('leads.datatable')}}',
         columns: [
             {data: 'id', name: 'id', visible: false},
-            {data: 'name', name: 'name'},
-            {data: 'phone', name: 'phone'},
+            {data: 'name', name: 'name', responsivePriority: -4},
+            {data: 'phone', name: 'phone', responsivePriority: -3},
             {data: 'district', name: 'district'},
             {data: 'company', name: 'company'},
             {data: 'note', name: 'note'},
             {data: 'source', name: 'source'},
-            {data: 'created_by', name: 'created_by'},
+            {data: 'created_by', name: 'created_by', responsivePriority: -1},
             {data: 'created_at', name: 'created_at'},
-            {data: 'status', name: 'status'},
+            {data: 'status', name: 'status', responsivePriority: -2},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
     });

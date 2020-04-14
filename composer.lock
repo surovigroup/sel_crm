@@ -157,12 +157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/devfaysal/laravel-admin.git",
-                "reference": "f9ef6b38fc1b1e0d2c004c9ab7f220ed1b96fcf1"
+                "reference": "d7e9122e2d8e446f9989253604ca3402b08a6614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/f9ef6b38fc1b1e0d2c004c9ab7f220ed1b96fcf1",
-                "reference": "f9ef6b38fc1b1e0d2c004c9ab7f220ed1b96fcf1",
+                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/d7e9122e2d8e446f9989253604ca3402b08a6614",
+                "reference": "d7e9122e2d8e446f9989253604ca3402b08a6614",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
                 "devfaysal",
                 "laravel-admin"
             ],
-            "time": "2020-04-13T03:03:07+00:00"
+            "time": "2020-04-14T03:04:59+00:00"
         },
         {
             "name": "devfaysal/laravel-bangladesh-geocode",
@@ -1127,16 +1127,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389"
+                "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/5a67afc2572ec6d430526cdc9c637ef124812389",
-                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
+                "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
                 "shasum": ""
             },
             "require": {
@@ -1197,7 +1197,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-04-05T16:01:48+00:00"
+            "time": "2020-04-13T20:52:18+00:00"
         },
         {
             "name": "league/flysystem",
