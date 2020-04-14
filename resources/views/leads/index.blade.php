@@ -51,14 +51,14 @@
             {data: 'id', name: 'id', visible: false},
             {data: 'name', name: 'name', responsivePriority: -4},
             {data: 'phone', name: 'phone', responsivePriority: -3},
-            {data: 'district', name: 'district'},
-            {data: 'company', name: 'company'},
-            {data: 'note', name: 'note'},
-            {data: 'source', name: 'source'},
+            {data: 'district', name: 'district', responsivePriority: 97},
+            {data: 'company', name: 'company', responsivePriority: 95},
+            {data: 'note', name: 'note', responsivePriority: 99},
+            {data: 'source', name: 'source', responsivePriority: 94},
             {data: 'created_by', name: 'created_by', responsivePriority: -1},
-            {data: 'created_at', name: 'created_at'},
+            {data: 'created_at', name: 'created_at', responsivePriority: 96},
             {data: 'status', name: 'status', responsivePriority: -2},
-            {data: 'action', name: 'action', orderable: false, searchable: false}
+            {data: 'action', name: 'action', orderable: false, searchable: false, responsivePriority: 98}
         ],
     });
 </script>
