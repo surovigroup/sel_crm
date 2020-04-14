@@ -8,6 +8,7 @@ use App\Status;
 use App\Exports\LeadsExport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Jenssegers\Agent\Facades\Agent;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use Devfaysal\LaravelAdmin\Models\Admin;
@@ -148,10 +149,16 @@ class LeadController extends Controller
             ->addColumn('created_by', function($lead) {
                 return $lead->createdBy->name;
             })
+            ->addColumn('phone', function($lead) {
+                if(Agent::isMobile()){
+                    return '<a href="tel:+88' . $lead->phone .'">' . $lead->phone .'</a>';
+                }
+                return $lead->phone;
+            })
             ->addColumn('created_at', function($lead) {
                 return $lead->created_at->format('d-m-y');
             })
-            ->rawColumns(['action', 'status'])
+            ->rawColumns(['action', 'status', 'phone'])
             ->make(true);
     }
 
