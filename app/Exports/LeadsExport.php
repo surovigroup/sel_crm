@@ -14,7 +14,7 @@ class LeadsExport implements FromQuery, WithMapping, WithHeadings
      */
     public function query()
     {
-        return Lead::query();
+        return Lead::orderBy('created_at', 'desc');
     }
 
     public function map($lead): array
