@@ -23,7 +23,9 @@ class LeadsExport implements FromQuery, WithMapping, WithHeadings
             $lead->name,
             $lead->phone,
             $lead->email,
+            $lead->source,
             $lead->createdBy->name,
+            $lead->created_at->format('d-m-Y'),
             $lead->status->name
         ];
     }
@@ -34,7 +36,9 @@ class LeadsExport implements FromQuery, WithMapping, WithHeadings
             'Lead Name',
             'Phone',
             'Email',
+            'Source',
             'Created By',
+            'Created At',
             'Status'
         ];
     }

@@ -56,3 +56,9 @@
     <a href="/admin/leads">
         <i class="fa fa-users"></i> Leads </a>
 </li>
+@can('export_leads')
+<li class="{{(request()->is('admin/leads/export')) ? 'active' : '' }}">
+    <a href="/admin/leads/export">
+        <i class="fa fa-download"></i> Export </a>
+</li>
+@endcan

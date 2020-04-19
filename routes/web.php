@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function () {
 
         //Leads
         Route::get('/leads', [LeadController::class, 'index']);
-        Route::get('/leads/export', [LeadController::class, 'export']);
+        Route::get('/leads/export', [LeadController::class, 'export'])->name('leads.export')->middleware('permission:export_leads');
         Route::get('/leads/datatable', [LeadController::class, 'datatable'])->name('leads.datatable');
         Route::get('/leads/create', [LeadController::class, 'create']);
         Route::post('/leads', [LeadController::class, 'store']);

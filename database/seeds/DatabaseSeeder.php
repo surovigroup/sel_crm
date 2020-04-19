@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         Permission::create(['guard_name' => 'admin', 'name' => 'manage_source']);
         Permission::create(['guard_name' => 'admin', 'name' => 'manage_stock']);
         Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'export_leads']);
 
         $admin = Admin::find(1);
 
@@ -31,7 +32,8 @@ class DatabaseSeeder extends Seeder
             'manage_status',
             'manage_source',
             'manage_stock',
-            'lead_manager'
+            'lead_manager',
+            'export_leads'
         ]);
 
         $this->call(SourceSeeder::class);

@@ -9,6 +9,10 @@ class Lead extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
+
     protected $with = ['status', 'createdBy'];
 
     public function asignedTo()
