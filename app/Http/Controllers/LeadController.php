@@ -155,10 +155,10 @@ class LeadController extends Controller
                 }
                 return $lead->phone;
             })
-            ->addColumn('created_at', function($lead) {
+            ->editColumn('created_at', function($lead) {
                 return $lead->created_at->format('d M y');
             })
-            ->addColumn('updated_at', function($lead) {
+            ->editColumn('updated_at', function($lead) {
                 return $lead->updated_at->format('d M y');
             })
             ->rawColumns(['action', 'status', 'phone'])
