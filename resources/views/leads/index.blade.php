@@ -24,6 +24,7 @@
                                             <th>Source</th>
                                             <th>Created By</th>
                                             <th>Created at</th>
+                                            <th>Updated at</th>
                                             <th>Status</th>
                                             <th class="hide">Action</th>
                                         </tr>
@@ -57,6 +58,7 @@
             {data: 'source', name: 'source', responsivePriority: 94},
             {data: 'created_by', name: 'created_by', responsivePriority: -1},
             {data: 'created_at', name: 'created_at', responsivePriority: 96},
+            {data: 'updated_at', name: 'updated_at', responsivePriority: 93},
             {data: 'status', name: 'status', responsivePriority: -2},
             {data: 'action', name: 'action', orderable: false, searchable: false, responsivePriority: 98}
         ],
