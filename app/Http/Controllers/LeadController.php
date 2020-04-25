@@ -8,6 +8,7 @@ use App\Status;
 use App\Exports\LeadsExport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use App\Http\Requests\LeadRequest;
 use Jenssegers\Agent\Facades\Agent;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
@@ -37,24 +38,9 @@ class LeadController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(LeadRequest $request)
     {
-        $attributes = $request->validate([
-            'name'      => 'required',
-            'phone'     => 'required|digits:11|unique:leads',
-            'email'     => 'nullable|email|unique:leads',
-            'source'    => 'required',
-            'company'   => 'nullable',
-            'district'  => 'nullable',
-            'division'  => 'nullable',
-            'upazila'   => 'nullable',
-            'note'      => 'nullable',
-        ]);
-
-        $attributes['description'] = $request->description;
-        $attributes['admin_created_id'] = auth()->user()->id;
-        $attributes['admin_assigned_id'] = $request->admin_assigned_id ?? auth()->user()->id;
-        $attributes['status_id'] = $request->status_id ?? Status::first()->id;
+        $attributes = $request->validated();
 
         Lead::create($attributes);
 
@@ -78,23 +64,9 @@ class LeadController extends Controller
     }
 
 
-    public function update(Request $request, Lead $lead)
+    public function update(LeadRequest $request, Lead $lead)
     {
-        $attributes = $request->validate([
-            'name'      => 'required',
-            'phone'     => 'required|digits:11|unique:leads,phone,' . $lead->id,
-            'email'     => 'nullable|email|unique:leads,email,' . $lead->id,
-            'source'    => 'required',
-            'company'   => 'nullable',
-            'district'  => 'nullable',
-            'division'  => 'nullable',
-            'upazila'   => 'nullable',
-            'note'   => 'nullable',
-        ]);
-
-        $attributes['description'] = $request->description;
-        $attributes['admin_assigned_id'] = $request->admin_assigned_id ?? auth()->user()->id;
-        $attributes['status_id'] = $request->status_id ?? Status::first()->id;
+        $attributes = $request->validated();
 
         $lead->update($attributes);
 
