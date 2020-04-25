@@ -9,6 +9,7 @@ use App\Exports\LeadsExport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\LeadRequest;
+use App\Notifications\LeadAssigned;
 use Jenssegers\Agent\Facades\Agent;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
@@ -42,7 +43,11 @@ class LeadController extends Controller
     {
         $attributes = $request->validated();
 
-        Lead::create($attributes);
+        $lead = Lead::create($attributes);
+
+        if($lead->admin_assigned_id != auth()->user()->id){
+            $lead->asignedTo->notify(new LeadAssigned($lead));
+        }
 
         Session::flash('message', 'Lead created Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
@@ -66,9 +71,14 @@ class LeadController extends Controller
 
     public function update(LeadRequest $request, Lead $lead)
     {
+        $old_assigned_to = $lead->assigned_to;
         $attributes = $request->validated();
 
         $lead->update($attributes);
+
+        if($lead->admin_assigned_id != $old_assigned_to && $lead->admin_assigned_id != auth()->user()->id){
+            $lead->asignedTo->notify(new LeadAssigned($lead));
+        }
 
         Session::flash('message', 'Lead updated Successfully!!'); 
         Session::flash('alert-class', 'alert-success');
