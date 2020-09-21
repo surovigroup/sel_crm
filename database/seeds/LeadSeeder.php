@@ -1,7 +1,7 @@
 <?php
 
-use App\Lead;
-use App\Status;
+use App\Models\Lead;
+use App\Models\Status;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -33,7 +33,7 @@ class LeadSeeder extends Seeder
 
             Lead::create($lead_data);
         }
-        
+
     }
 
     public function get_random_element( array $array )

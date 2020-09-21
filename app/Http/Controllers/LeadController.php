@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Lead;
-use App\Source;
-use App\Status;
+use App\Models\Lead;
+use App\Models\Source;
+use App\Models\Status;
 use App\Exports\LeadsExport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -49,7 +49,7 @@ class LeadController extends Controller
             $lead->asignedTo->notify(new LeadAssigned($lead));
         }
 
-        Session::flash('message', 'Lead created Successfully!!'); 
+        Session::flash('message', 'Lead created Successfully!!');
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/leads');
@@ -80,7 +80,7 @@ class LeadController extends Controller
             $lead->asignedTo->notify(new LeadAssigned($lead));
         }
 
-        Session::flash('message', 'Lead updated Successfully!!'); 
+        Session::flash('message', 'Lead updated Successfully!!');
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/leads');
@@ -91,10 +91,10 @@ class LeadController extends Controller
         $request->validate([
             'status_id' => 'required',
         ]);
-        
+
         $lead->status_id = $request->status_id;
         $lead->save();
-        Session::flash('message', 'Status updated Successfully!!'); 
+        Session::flash('message', 'Status updated Successfully!!');
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/leads/'. $lead->id);
@@ -147,7 +147,7 @@ class LeadController extends Controller
             ->make(true);
     }
 
-    public function export() 
+    public function export()
     {
         $filename = 'leads' . time() . '.xlsx';
         return Excel::download(new LeadsExport, $filename);

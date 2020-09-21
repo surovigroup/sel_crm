@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Source;
+use App\Models\Source;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -29,7 +29,7 @@ class SourceController extends Controller
 
         Source::create($attributes);
 
-        Session::flash('message', 'Source created Successfully!!'); 
+        Session::flash('message', 'Source created Successfully!!');
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/sources');
@@ -51,7 +51,7 @@ class SourceController extends Controller
 
         $source->update($attributes);
 
-        Session::flash('message', 'Source Updated Successfully!!'); 
+        Session::flash('message', 'Source Updated Successfully!!');
         Session::flash('alert-class', 'alert-success');
 
         return redirect('/admin/sources');

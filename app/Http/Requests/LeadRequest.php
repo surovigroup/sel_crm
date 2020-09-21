@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Status;
+use App\Models\Status;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LeadRequest extends FormRequest

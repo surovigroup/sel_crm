@@ -2,9 +2,9 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Lead;
+use App\Models\Lead;
 use App\User;
-use App\Status;
+use App\Models\Status;
 use Faker\Generator as Faker;
 
 $factory->define(Lead::class, function (Faker $faker) {

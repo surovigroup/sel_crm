@@ -11,7 +11,7 @@
                             <h4 class="title">Create New Lead</h4>
                         </div>
                         @include('leads.form', [
-                            'lead' => new App\Lead(),
+                            'lead' => new App\Models\Lead(),
                             'buttonText' => 'Create'
                         ])
                     </div>

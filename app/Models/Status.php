@@ -1,8 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Models\Lead;
 use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model

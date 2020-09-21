@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Lead;
+use App\Models\Lead;
 use Tests\TestCase;
 use Devfaysal\LaravelAdmin\Models\Admin;
 use Spatie\Permission\Models\Permission;
