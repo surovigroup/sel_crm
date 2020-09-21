@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\TechplatoonController;
-use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\PermissionController;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => ['admin.auth:admin', 'permission:access_admin_dashboard']], function () {
+        Route::get('/logs', [LogViewerController::class, 'index']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
         //Statuses
         Route::get('/statuses', [StatusController::class, 'index']);
