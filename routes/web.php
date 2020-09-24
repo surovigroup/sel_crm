@@ -9,7 +9,6 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TechplatoonController;
-use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +27,6 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => ['admin.auth:admin', 'permission:access_admin_dashboard']], function () {
-        Route::get('/logs', [LogViewerController::class, 'index']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admins.dashboard');
         //Statuses
         Route::get('/statuses', [StatusController::class, 'index']);
