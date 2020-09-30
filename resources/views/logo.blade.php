@@ -1,0 +1,1 @@
+<img style="max-width: 250px; margin-top: 5px;" src="{{ asset('images/logos/Final_Surovi-Enterprise_Logo.jpg') }}" alt="Surovi Enterprise">
