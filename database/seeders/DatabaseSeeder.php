@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         Permission::create(['guard_name' => 'admin', 'name' => 'export_leads']);
 
         $admin = Admin::find(1);
+        $admin->email = 'faysal@surovigroup.net';
+        $admin->save();
 
         $admin->givePermissionTo([
             'manage_status',
