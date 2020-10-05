@@ -158,12 +158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/devfaysal/laravel-admin.git",
-                "reference": "6d8b8eed32e66b65243330617af1d570c1aa880b"
+                "reference": "ac52f26d5dd097474dbcae25c0ae13921ed45321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/6d8b8eed32e66b65243330617af1d570c1aa880b",
-                "reference": "6d8b8eed32e66b65243330617af1d570c1aa880b",
+                "url": "https://api.github.com/repos/devfaysal/laravel-admin/zipball/ac52f26d5dd097474dbcae25c0ae13921ed45321",
+                "reference": "ac52f26d5dd097474dbcae25c0ae13921ed45321",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 "devfaysal",
                 "laravel-admin"
             ],
-            "time": "2020-09-30T10:02:47+00:00"
+            "time": "2020-10-05T14:04:49+00:00"
         },
         {
             "name": "devfaysal/laravel-bangladesh-geocode",
