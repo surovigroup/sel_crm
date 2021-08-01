@@ -1,3 +1,7 @@
+<li class="{{ (request()->is('admin/dashboard')) ? 'active open' : '' }}">
+    <a href="/admin/dashboard">
+        <i class="fa fa-th-large"></i> {{ __('Dashboard') }} </a>
+</li>
 @can('manage_status')
 <li class="{{(request()->is('admin/statuses*')) ? 'active' : '' }}">
     <a href="/admin/statuses">
