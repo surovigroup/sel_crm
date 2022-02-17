@@ -23,7 +23,7 @@
         "spatie/laravel-backup": "^6.7"
     },
     "require-dev": {
-        "facade/ignition": "^2.3.6",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "dev-main",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^5.0",
@@ -71,7 +71,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url":  "https://github.com/devfaysal/Faker.git"
+            "url": "https://github.com/devfaysal/Faker.git"
         }
     ]
 }
