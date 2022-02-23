@@ -1,25 +1,32 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+namespace Database\Factories;
 
-use App\Models\Lead;
-use App\User;
 use App\Models\Status;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Lead::class, function (Faker $faker) {
-    return [
-        'admin_created_id'   => 1,
-        'admin_assigned_id'  => 1,
-        'name'              => $faker->name,
-        'phone'             => $faker->PhoneNumber,
-        'email'             => $faker->email,
-        'source'            => $faker->word,
-        'description'       => $faker->sentence,
-        'company'           => 'Microsoft',
-        'division'          => 'Dhaka',
-        'district'          => 'Gazipur',
-        'upazila'           => 'Amraid',
-        'status_id'         => factory(Status::class)
-    ];
-});
+class LeadFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'admin_created_id'   => 1,
+            'admin_assigned_id'  => 1,
+            'name'              => $this->faker->name,
+            'phone'             => $this->faker->PhoneNumber,
+            'email'             => $this->faker->email,
+            'source'            => $this->faker->word,
+            'description'       => $this->faker->sentence,
+            'company'           => 'Microsoft',
+            'division'          => 'Dhaka',
+            'district'          => 'Gazipur',
+            'upazila'           => 'Amraid',
+            'status_id'         => Status::factory()->create()
+        ];
+    }
+}

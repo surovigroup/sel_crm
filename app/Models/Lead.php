@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Devfaysal\LaravelAdmin\Models\Admin;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lead extends Model
 {
+    use HasFactory;
+    
     protected $guarded = [];
 
     protected $casts = [

@@ -18,7 +18,8 @@ class LeadTest extends TestCase
     public function authenticated_users_can_access_lead_create_page()
     {
         $this->withoutExceptionHandling();
-        $admin = factory(Admin::class)->create();
+        Admin::factory()->create();
+        $admin = Admin::first();
         Permission::create(['guard_name' => 'admin', 'name' => 'access_admin_dashboard']);
         Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
         $admin->givePermissionTo([
@@ -26,7 +27,7 @@ class LeadTest extends TestCase
             'lead_manager'
         ]);
         $this->actingAs($admin, 'admin');
-        $attributes = factory(Lead::class)->raw();
+        $attributes = Lead::factory()->make()->toArray();
         unset($attributes['admin_created_id']);
 
         foreach($attributes as $attribute => $value){
@@ -40,7 +41,8 @@ class LeadTest extends TestCase
     public function authenticated_users_can_create_leads()
     {
         $this->withoutExceptionHandling();
-        $admin = factory(Admin::class)->create();
+        Admin::factory()->create();
+        $admin = Admin::first();
         Permission::create(['guard_name' => 'admin', 'name' => 'access_admin_dashboard']);
         Permission::create(['guard_name' => 'admin', 'name' => 'lead_manager']);
         $admin->givePermissionTo([
@@ -48,7 +50,7 @@ class LeadTest extends TestCase
             'lead_manager'
         ]);
         $this->actingAs($admin, 'admin');
-        $attributes = factory(Lead::class)->raw();
+        $attributes = Lead::factory()->make()->toArray();
         $attributes['admin_created_id'] = auth()->user()->id;
 
         $this->post('/admin/leads', $attributes);

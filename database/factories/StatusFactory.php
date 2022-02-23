@@ -1,13 +1,21 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+namespace Database\Factories;
 
-use App\Models\Status;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Status::class, function (Faker $faker) {
-    return [
-        'name'  => $faker->word,
-        'color' => $faker->hexcolor
-    ];
-});
+class StatusFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name'  => $this->faker->word,
+            'color' => $this->faker->hexcolor
+        ];
+    }
+}
