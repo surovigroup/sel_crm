@@ -17,9 +17,10 @@ class DashboardController extends Controller
                 ->get();
         $status_diversity = DB::table('leads')
                 ->join('statuses', 'statuses.id' , '=', 'leads.status_id')
-                ->select('leads.status_id','statuses.name as status', 'statuses.color as color' ,DB::raw('count(*) as total'))
+                ->select('status_id','statuses.name as status', 'statuses.color as color' ,DB::raw('count(*) as total'))
                 ->groupBy('status_id')
-                ->get();
+                ->get(['status_id', 'statuses.name as status', 'statuses.color as color', 'total']);
+                // dd($status_diversity);
         $order_confirmed = DB::table('leads')
                 ->where('status_id', 1)
                 ->count();
