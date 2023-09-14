@@ -3,6 +3,9 @@ namespace Database\Seeders;
 
 use App\Models\Lead;
 use App\Models\Status;
+use Devfaysal\BangladeshGeocode\Models\District;
+use Devfaysal\BangladeshGeocode\Models\Division;
+use Devfaysal\BangladeshGeocode\Models\Upazila;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +21,9 @@ class LeadSeeder extends Seeder
         $faker = Faker::create('en_BD');
         $status_count = Status::count();
 
+        $divisions = Division::pluck('name');
+        $districts = District::pluck('name');
+        $upazilas = Upazila::pluck('name');
         foreach(range(1,50) as $lead){
             $lead_data['admin_created_id'] = 1;
             $lead_data['admin_assigned_id'] = 1;
@@ -27,9 +33,9 @@ class LeadSeeder extends Seeder
             $lead_data['source'] = $this->get_random_element(['Facebook', 'Techplatoon', 'Daraz']);
             $lead_data['description'] = $faker->sentence;
             $lead_data['company'] = $faker->company;
-            $lead_data['division'] = $faker->division;
-            $lead_data['district'] = $faker->district;
-            $lead_data['upazila'] = $faker->upazila;
+            $lead_data['division'] = $faker->randomElement($divisions);
+            $lead_data['district'] = $faker->randomElement($districts);
+            $lead_data['upazila'] = $faker->randomElement($upazilas);
             $lead_data['status_id'] = rand(1, $status_count);
 
             Lead::create($lead_data);

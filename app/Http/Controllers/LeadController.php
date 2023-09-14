@@ -132,9 +132,9 @@ class LeadController extends Controller
                 return $lead->createdBy->name;
             })
             ->addColumn('phone', function($lead) {
-                if(Agent::isMobile()){
-                    return '<a href="tel:+88' . $lead->phone .'">' . $lead->phone .'</a>';
-                }
+                // if(Agent::isMobile()){
+                //     return '<a href="tel:+88' . $lead->phone .'">' . $lead->phone .'</a>';
+                // }
                 return $lead->phone;
             })
             ->editColumn('created_at', function($lead) {
