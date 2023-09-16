@@ -9,6 +9,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TechplatoonController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::prefix('admin')->group(function () {
 
         Route::group(['middleware' => ['permission:manage_stock']], function () {
             Route::get('techplatoon/brands/{brand}', [TechplatoonController::class, 'brand'])->name('techplatoon.brand');
+            Route::get('techplatoon/categories', [TechplatoonController::class, 'categories'])->name('techplatoon.categories');
         });
     });
 

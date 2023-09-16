@@ -2,9 +2,16 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Stock;
+use App\Filament\Widgets\LeadDiversityBySource;
+use App\Filament\Widgets\LeadDiversityByStatus;
+use App\Filament\Widgets\StatsOverview;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -53,6 +60,28 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Manage Stock')
+                    ->collapsed()
             ]);
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        Filament::serving(function () {
+            Filament::registerNavigationItems([
+                NavigationItem::make('Belkin')
+                    ->url(function(): string{
+                        return Stock::getUrl(['id' => 354]);
+                    })
+                    ->icon('heroicon-o-briefcase')
+                    ->group('Manage Stock')
+            ]);
+        });
     }
 }

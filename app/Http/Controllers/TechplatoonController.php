@@ -8,6 +8,12 @@ use App\Http\Controllers\Traits\Woocommerce;
 class TechplatoonController extends Controller
 {
     use Woocommerce;
+
+    public function categories()
+    {
+        $categories = $this->techplatoon->get('products/categories/',['per_page' => 100]);
+        dd($categories);
+    }
     
     public function brand($brand)
     {
