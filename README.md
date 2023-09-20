@@ -2,7 +2,7 @@
 This project was developed on top of https://github.com/devfaysal/laravel-admin
 
 
-### Installation Instruction
+### Installation Instruction for development
 - Clone the repository `` git clone https://github.com/devfaysal/crm.git your_project_name``
 - Enter to the project folder `` cd your_project_name ``
 - Install composer packages `` composer install ``
